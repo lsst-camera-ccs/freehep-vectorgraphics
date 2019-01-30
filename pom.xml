@@ -27,16 +27,16 @@
 	</licenses>
 
 	<distributionManagement>
-		<repository>
-			<id>sonatype-nexus-staging</id>
-			<name>FreeHEP Release Repository</name>
-			<url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
-		<snapshotRepository>
-			<id>sonatype-nexus-snapshots</id>
-			<name>FreeHEP Snapshot Repository</name>
-			<url>http://oss.sonatype.org/content/repositories/freehep-snapshots/</url>
-		</snapshotRepository>
+            <repository>
+                <id>lsst-maven2</id>
+                <name>LSST Maven 2 central repository</name>
+                <url>http://repo-nexus.lsst.org/nexus/content/repositories/ccs-maven2/</url>
+            </repository>
+            <snapshotRepository>
+                <id>lsst-maven2-snapshots</id>
+                <name>LSST Maven2 central SNAPSHOTS repository</name>
+                <url>http://repo-nexus.lsst.org/nexus/content/repositories/ccs-maven2-snapshots/</url>
+            </snapshotRepository>
 	</distributionManagement>
 
 	<prerequisites>
