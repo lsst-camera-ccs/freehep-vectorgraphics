@@ -43,12 +43,12 @@
 		<maven>3.0.0</maven>
 	</prerequisites>
 
-	<scm>
-		<connection>scm:git:git://github.com/freehep/freehep-vectorgraphics.git</connection>
-		<developerConnection>scm:git:git@github.com:freehep/freehep-vectorgraphics.git</developerConnection>
-		<url>http://github.com/freehep/freehep-vectorgraphics</url>
-		<tag>freehep-vectorgraphics-2.4</tag>
-	</scm>
+        <scm>
+            <url>https://github.com/lsst-camera-ccs/reehep-vectorgraphics</url>
+            <connection>scm:git:git://github.com/lsst-camera-ccs/reehep-vectorgraphics.git</connection>
+            <developerConnection>scm:git:ssh://git@github.com/lsst-camera-ccs/reehep-vectorgraphics.git</developerConnection>
+            <tag>HEAD</tag>
+        </scm>
 
 	<issueManagement>
 		<system>github</system>
@@ -278,7 +278,7 @@
         <checkinComment>Publishing javadoc for ${project.artifactId}:${project.version}</checkinComment>
         <content>${project.reporting.outputDirectory}</content>
         <skipDeletedFiles>true</skipDeletedFiles>
-        <pubScmUrl>scm:git:git@github.com:freehep/freehep-vectorgraphics.git</pubScmUrl>
+        <pubScmUrl>scm:git:git://github.com/lsst-camera-ccs/reehep-vectorgraphics.git</pubScmUrl>
         <scmBranch>gh-pages</scmBranch> 
 <!-- 1.0 seems to ignore scmBranch and use master
         <tryUpdate>true</tryUpdate>
