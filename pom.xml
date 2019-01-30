@@ -4,7 +4,7 @@
 
 	<groupId>org.freehep</groupId>
 	<artifactId>freehep-vectorgraphics</artifactId>
-	<version>2.4.2</version>
+	<version>2.4.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>FreeHEP Vector Graphics</name>
@@ -47,7 +47,7 @@
             <url>https://github.com/lsst-camera-ccs/freehep-vectorgraphics</url>
             <connection>scm:git:git://github.com/lsst-camera-ccs/rfeehep-vectorgraphics.git</connection>
             <developerConnection>scm:git:ssh://git@github.com/lsst-camera-ccs/freehep-vectorgraphics.git</developerConnection>
-            <tag>freehep-vectorgraphics-2.4.2</tag>
+            <tag>HEAD</tag>
         </scm>
 
 	<issueManagement>
