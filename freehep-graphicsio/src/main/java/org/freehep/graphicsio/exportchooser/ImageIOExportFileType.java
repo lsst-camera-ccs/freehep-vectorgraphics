@@ -66,7 +66,7 @@ public class ImageIOExportFileType implements RegisterableService {
             }
         }    
         
-        registry.deregisterServiceProvider(this, (Class<ImageIOExportFileType>)category);
+//        registry.deregisterServiceProvider(this, (Class<ImageIOExportFileType>)category);
     }
 
     public void onDeregistration(ServiceRegistry registry, Class<?> category) {

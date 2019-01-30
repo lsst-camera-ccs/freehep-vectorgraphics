@@ -20,7 +20,6 @@ public class ExportFileTypeRegistry {
     private static ExportFileTypeRegistry registry;
     private static ClassLoader loader;
 
-    private ServiceRegistry service;
     private List<ExportFileType> extraTypes;
     
     private static final Collection<Class<?>> categories = new ArrayList<Class<?>>(2);
@@ -30,7 +29,6 @@ public class ExportFileTypeRegistry {
     }
 
     private ExportFileTypeRegistry() {
-        service = new ServiceRegistry(categories.iterator());
         extraTypes = new ArrayList<ExportFileType>();
     }
 
@@ -46,7 +44,7 @@ public class ExportFileTypeRegistry {
             // as a result of something on the classpath needing the registry inside
             // the onRegistration call. Such call would just return the already created
             // registry.
-            addApplicationClasspathExportFileTypes(registry);
+            registry.addApplicationClasspathExportFileTypes();
         }
         return registry;
     }
@@ -68,13 +66,7 @@ public class ExportFileTypeRegistry {
      */
     public List/*<ExportFileType>*/<ExportFileType> get(String format) {
         List<ExportFileType> export = new ArrayList<ExportFileType>();
-        
-        // add all ExportFileTypes found in service
-        addExportFileTypeToList(export, format, service.getServiceProviders(ExportFileType.class, true));
-        
-        // add all ExportFileTypes on extraTypes
         addExportFileTypeToList(export, format, extraTypes.iterator());
-        
         return export;
     }
     
@@ -109,22 +101,23 @@ public class ExportFileTypeRegistry {
     }
     
     @SuppressWarnings( "unchecked" )
-    private static void addApplicationClasspathExportFileTypes(ExportFileTypeRegistry registry) {
+    private void addApplicationClasspathExportFileTypes() {
 	    ClassLoader classLoader = (loader != null) ? loader : Thread.currentThread().getContextClassLoader();
-
         Iterator<Class<?>> iterator = categories.iterator();
         while (iterator.hasNext()) {
             Class<?> category = iterator.next();
-                        
             Iterator<Object> providers = Service.providers(category, classLoader).iterator();
-            Object previous = null;
             while (providers.hasNext()) {
                 Object current = providers.next();
-                registry.service.registerServiceProvider(current);
-                if (previous != null) {
-                    registry.service.setOrdering((Class<Object>)category, previous, current);
+                if (current instanceof RegisterableService) {
+                    try {
+                        ((RegisterableService) current).onRegistration(null, category);
+                    }  catch (RuntimeException x) {
+                    }
                 }
-                previous = current;
+                if (current instanceof ExportFileType) {
+                    extraTypes.add((ExportFileType)current);
+                }
             }
         }
     }
