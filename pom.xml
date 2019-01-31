@@ -177,7 +177,7 @@
 					<preparationGoals>clean install</preparationGoals>
 					<arguments>-DupdateReleaseInfo -Dvg.local=false</arguments>
 					<mavenExecutorId>forked-path</mavenExecutorId>
-					<goals>install</goals>					
+					<goals>install deploy</goals>					
 				</configuration>
 			</plugin>
 			<plugin>
