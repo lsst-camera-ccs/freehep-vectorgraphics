@@ -32,6 +32,11 @@
                 <name>LSST Maven 2 central repository</name>
                 <url>http://repo-nexus.lsst.org/nexus/content/repositories/ccs-maven2/</url>
             </repository>
+<!--            <repository>
+                <id>jas-maven2</id>
+                <name>Jas plugins repository</name>
+                <url>http://srs.slac.stanford.edu/nexus/content/groups/jas-plugin-public/</url>
+            </repository>-->
             <snapshotRepository>
                 <id>lsst-maven2-snapshots</id>
                 <name>LSST Maven2 central SNAPSHOTS repository</name>
